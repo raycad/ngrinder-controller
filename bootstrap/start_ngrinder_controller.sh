@@ -10,7 +10,8 @@ echo "NGRINDER_MONITOR_BINDING_PORT =" $NGRINDER_MONITOR_BINDING_PORT
 # sed s/monitor.binding_ip=/$NGRINDER_MONITOR_BINDING_IP/ $NGRINDER_MONITOR_HOME/__agent.conf
 # sed s/monitor.binding_port=/$NGRINDER_MONITOR_BINDING_PORT/ $NGRINDER_MONITOR_HOME/__agent.conf
 
-echo -e "monitor.binding_ip=$NGRINDER_MONITOR_BINDING_IP\nmonitor.binding_port=$NGRINDER_MONITOR_BINDING_PORT" >> $NGRINDER_MONITOR_HOME/__agent.conf
+echo "monitor.binding_ip=$NGRINDER_MONITOR_BINDING_IP" >> $NGRINDER_MONITOR_HOME/__agent.conf
+echo "monitor.binding_port=$NGRINDER_MONITOR_BINDING_PORT" >> $NGRINDER_MONITOR_HOME/__agent.conf
 
 # Run the NGRINDER controller
 java -jar $NGRINDER_CONTROLLER_HOME/ngrinder-controller-$NGRINDER_VERSION.war &

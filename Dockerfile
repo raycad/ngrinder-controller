@@ -28,7 +28,7 @@ ENV NGRINDER_MONITOR_BINDING_PORT=13243
 ADD ngrinder-$NGRINDER_VERSION/ngrinder-controller-$NGRINDER_VERSION $NGRINDER_CONTROLLER_HOME
 
 # Install NGrinder Monitor
-ADD ngrinder-$NGRINDER_VERSION/ngrinder-monitor-$NGRINDER_VERSION NGRINDER_MONITOR_HOME
+ADD ngrinder-$NGRINDER_VERSION/ngrinder-monitor-$NGRINDER_VERSION $NGRINDER_MONITOR_HOME
 
 # RUN wget https://github.com/naver/ngrinder/releases/download/ngrinder-3.4.2-20180830/ngrinder-controller-3.4.2.war && \
 #     mv ngrinder-3.4.2-20180830/ngrinder-controller-3.4.2.war $NGRINDER_HOME
@@ -44,7 +44,7 @@ ADD bootstrap/start_ngrinder_controller.sh /root/start_ngrinder_controller.sh
 # EXPOSE 13243
 
 # Set environment variables for other users
-RUN echo "export NGRINDER_HOME=$NGRINDER_HOME" > /etc/bash.bashrc
+RUN echo "export NGRINDER_HOME=$NGRINDER_HOME" >> /etc/bash.bashrc
 RUN echo "export PATH=$PATH:$NGRINDER_HOME" >> /etc/bash.bashrc
 
 # Start services
