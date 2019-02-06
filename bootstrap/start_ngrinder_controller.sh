@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+NGRINDER_MONITOR_BINDING_IP=${NGRINDER_MONITOR_BINDING_IP:-localhost}
+echo "NGRINDER_MONITOR_BINDING_IP =" $NGRINDER_MONITOR_BINDING_IP
+
+NGRINDER_MONITOR_BINDING_PORT=${NGRINDER_MONITOR_BINDING_PORT:-13243}
+echo "NGRINDER_MONITOR_BINDING_PORT =" $NGRINDER_MONITOR_BINDING_PORT
+
+# # Altering the configuration files
+# sed s/monitor.binding_ip=/$NGRINDER_MONITOR_BINDING_IP/ $NGRINDER_MONITOR_HOME/__agent.conf
+# sed s/monitor.binding_port=/$NGRINDER_MONITOR_BINDING_PORT/ $NGRINDER_MONITOR_HOME/__agent.conf
+
+echo -e "monitor.binding_ip=$NGRINDER_MONITOR_BINDING_IP\nmonitor.binding_port=$NGRINDER_MONITOR_BINDING_PORT" >> $NGRINDER_MONITOR_HOME/__agent.conf
+
+# Run the NGRINDER controller
+java -jar $NGRINDER_CONTROLLER_HOME/ngrinder-controller-$NGRINDER_VERSION.war &
+
+# Run the NGRINDER monitor
+$NGRINDER_MONITOR_HOME/run_monitor.sh -o &
