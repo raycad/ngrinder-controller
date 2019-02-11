@@ -15,20 +15,11 @@ ENV NGRINDER_VERSION=3.4.2
 # Set NGrinder Home
 ENV NGRINDER_HOME=/usr/local/ngrinder-$NGRINDER_VERSION
 ENV NGRINDER_CONTROLLER_HOME=$NGRINDER_HOME/ngrinder-controller-$NGRINDER_VERSION
-ENV NGRINDER_MONITOR_HOME=$NGRINDER_HOME/ngrinder-monitor-$NGRINDER_VERSION
 
 RUN mkdir -p $NGRINDER_CONTROLLER_HOME
-RUN mkdir -p $NGRINDER_MONITOR_HOME
-
-# If you want to monitor bind to the different local ip not automatically selected ip. Specify below field.
-ENV NGRINDER_MONITOR_BINDING_IP=localhost
-ENV NGRINDER_MONITOR_BINDING_PORT=13243
 
 # Install NGrinder Controller
 ADD ngrinder-$NGRINDER_VERSION/ngrinder-controller-$NGRINDER_VERSION $NGRINDER_CONTROLLER_HOME
-
-# Install NGrinder Monitor
-ADD ngrinder-$NGRINDER_VERSION/ngrinder-monitor-$NGRINDER_VERSION $NGRINDER_MONITOR_HOME
 
 # RUN wget https://github.com/naver/ngrinder/releases/download/ngrinder-3.4.2-20180830/ngrinder-controller-3.4.2.war && \
 #     mv ngrinder-3.4.2-20180830/ngrinder-controller-3.4.2.war $NGRINDER_HOME
