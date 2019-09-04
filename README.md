@@ -1,16 +1,37 @@
 # NGrinder Controller
 
-### 1. Pull the NGrinder Controller image
+### A. Create Docker Image
+##### 1. Login to Docker Hub
+```
+$ docker login --username=yourhubusername --password=yourpassword
+```
+
+##### 2. Build docker image
+```
+$ ./build_image.sh
+```
+
+##### 3. Push the image to the docker hub
+```
+$ sudo docker push $DOCKER_ACC/$DOCKER_REPO:$IMG_TAG
+
+e.g
+$ sudo docker push seedotech/ngrinder-controller:3.4.3
+```
+
+### B. Pull and Start NGrinder Controller
+
+##### 1. Pull the NGrinder Controller image
 ```
 $ sudo docker pull seedotech/ngrinder-controller:3.4.3
 ```
 
-### 2. Create a NGrinder network to controller & agent communication in the same physical machine (if needed)
+##### 2. Create a NGrinder network to controller & agent communication in the same physical machine (if needed)
 ```
 $ sudo docker network create --driver=bridge ngrinder
 ```
 
-### 2. Create and run docker container
+##### 3. Create and run docker container
 
 ```sh
 # NGRINDER Controller ports
@@ -39,11 +60,11 @@ $ sudo docker run -itd \
 					seedotech/ngrinder-controller:3.4.3 &> /dev/null
 ```
 
-### 3. Get into the ngrinder controller container
+##### 4. Get into the ngrinder controller container
 ```
 $ sudo docker exec -it ngrinder-controller bash
 ```
 
-### 4. NGrinder dashboard
+##### 5. NGrinder dashboard
 
 Access to the http://localhost:8080 to use NGrinder's dashboards.
