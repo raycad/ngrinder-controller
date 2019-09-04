@@ -10,4 +10,4 @@ sudo docker run -itd \
 					-p 12000-12009:12000-12009 \
 					--name ngrinder-controller \
 					--hostname ngrinder-controller \
-					seedotech/ngrinder-controller:3.4.2 &> /dev/null
+					seedotech/ngrinder-controller:3.4.3 &> /dev/null

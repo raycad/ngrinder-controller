@@ -2,7 +2,7 @@
 
 ### 1. Pull the NGrinder Controller image
 ```
-$ sudo docker pull seedotech/ngrinder-controller:3.4.2
+$ sudo docker pull seedotech/ngrinder-controller:3.4.3
 ```
 
 ### 2. Create a NGrinder network to controller & agent communication in the same physical machine (if needed)
@@ -23,7 +23,7 @@ $ sudo docker run -itd \
 					-p 12000-12009:12000-12009 \
 					--name ngrinder-controller \
 					--hostname ngrinder-controller \
-					seedotech/ngrinder-controller:3.4.2 &> /dev/null
+					seedotech/ngrinder-controller:3.4.3 &> /dev/null
 
 OR
 $ ./start_containers.sh
@@ -36,7 +36,7 @@ $ sudo docker run -itd \
 					-p 12000-12009:12000-12009 \
 					--name ngrinder-controller \
 					--hostname ngrinder-controller \
-					seedotech/ngrinder-controller:3.4.2 &> /dev/null
+					seedotech/ngrinder-controller:3.4.3 &> /dev/null
 ```
 
 ### 3. Get into the ngrinder controller container

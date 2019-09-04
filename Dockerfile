@@ -10,7 +10,7 @@ RUN apt-get update \
   apt-get install -y openssh-server openjdk-8-jdk htop wget nano iputils-ping net-tools netcat
 
 # Version
-ENV NGRINDER_VERSION=3.4.2
+ENV NGRINDER_VERSION=3.4.3
 
 # Set NGrinder Home
 ENV NGRINDER_HOME=/usr/local/ngrinder-$NGRINDER_VERSION
@@ -21,8 +21,8 @@ RUN mkdir -p $NGRINDER_CONTROLLER_HOME
 # Install NGrinder Controller
 ADD ngrinder-$NGRINDER_VERSION/ngrinder-controller-$NGRINDER_VERSION $NGRINDER_CONTROLLER_HOME
 
-# RUN wget https://github.com/naver/ngrinder/releases/download/ngrinder-3.4.2-20180830/ngrinder-controller-3.4.2.war && \
-#     mv ngrinder-3.4.2-20180830/ngrinder-controller-3.4.2.war $NGRINDER_HOME
+# RUN wget https://github.com/naver/ngrinder/releases/download/ngrinder-3.4.3-20180830/ngrinder-controller-3.4.3.war && \
+#     mv ngrinder-3.4.3-20180830/ngrinder-controller-3.4.3.war $NGRINDER_HOME
 
 # Copy start script
 ADD bootstrap/start_ngrinder_controller.sh /root/start_ngrinder_controller.sh
